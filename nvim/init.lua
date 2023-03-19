@@ -21,16 +21,24 @@ require("lazy").setup("bp.plugins")
 require("bp.keymaps")
 
 local lsp = require('lsp-zero').preset({
-  name = 'minimal',
+  suggest_lsp_servers = true,
+  setup_servers_on_start = true,
   set_lsp_keymaps = true,
+  configure_diagnostics = true,
+  cmp_capabilities = true,
   manage_nvim_cmp = true,
-  suggest_lsp_servers = false,
+  call_servers = 'local',
+  sign_icons = {
+    error = '✘',
+    warn = '▲',
+    hint = '⚑',
+    info = ''
+  }
 })
-
+lsp.setup()
 -- (Optional) Configure lua language server for neovim
 --lsp.nvim_workspace()
 
---lsp.setup()
 -- Behaviors
 vim.opt.belloff = "all" -- NO BELLS!
 vim.opt.completeopt = { "menuone", "noselect" } -- ins-completion how I like it
@@ -54,7 +62,6 @@ vim.opt.softtabstop = 4 -- <Tab> behaves as 4 spaces when editing
 -- Colors
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
--- vim.cmd("colorscheme tokyonight-night")
 
 -- Look and feel
 
