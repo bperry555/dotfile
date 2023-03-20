@@ -20,25 +20,6 @@ require("lazy").setup("bp.plugins")
 -- Keymaps
 require("bp.keymaps")
 
-local lsp = require('lsp-zero').preset({
-  suggest_lsp_servers = true,
-  setup_servers_on_start = true,
-  set_lsp_keymaps = true,
-  configure_diagnostics = true,
-  cmp_capabilities = true,
-  manage_nvim_cmp = true,
-  call_servers = 'local',
-  sign_icons = {
-    error = '✘',
-    warn = '▲',
-    hint = '⚑',
-    info = ''
-  }
-})
-lsp.setup()
--- (Optional) Configure lua language server for neovim
---lsp.nvim_workspace()
-
 -- Behaviors
 vim.opt.belloff = "all" -- NO BELLS!
 vim.opt.completeopt = { "menuone", "noselect" } -- ins-completion how I like it
