@@ -11,6 +11,7 @@ return {
   config = function ()
     require('neo-tree').setup ({
         --popup_border_style = "rounded",
+        close_if_last_window = true,
         add_blank_line_at_top = true,
         source_selector = {
             winbar = true,
