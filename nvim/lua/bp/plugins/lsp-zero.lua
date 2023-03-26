@@ -20,11 +20,26 @@ return {
         { 'rafamadriz/friendly-snippets' }, -- Optional
     },
     config = function()
-        local lsp = require('lsp-zero').preset('recommended')
+        local lsp = require('lsp-zero').preset({
+            name = 'recommended',
+            set_lsp_keymaps = true,
+            manage_nvim_cmp = true,
+            suggest_lsp_servers = true,
+        })
 
-        lsp.on_attach(function(_, bufnr)
-            lsp.default_keymaps({ buffer = bufnr })
-        end)
+        lsp.configure('lua_ls',{
+            on_attach = function(client, bufnr)
+                print('Hi Lua Server')
+            end,
+            settings = {
+                Lua ={
+                    diagnostics = {
+                        globals = { 'vim' }
+                    }
+                }
+            }
+        })
+
 
         lsp.set_sign_icons({
             error = '✘',
@@ -33,6 +48,7 @@ return {
             info = '»'
         })
 
+        lsp.nvim_workspace()
         lsp.setup()
     end
 }

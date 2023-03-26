@@ -45,6 +45,9 @@ vim.opt.termguicolors = true
 vim.opt.background = "dark"
 
 -- Look and feel
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.splitright = true
 
 -- Searching
 vim.opt.wildmenu = true -- tab complete on command line

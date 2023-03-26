@@ -7,7 +7,7 @@ return {
 -- +-------------------------------------------------+
 -- | A | B | C                             X | Y | Z |
 -- +-------------------------------------------------+
-    options = {
+    opts = {
         icons_enabled = true,
         theme = 'auto',
         component_separators = { left = '', right = ''},
