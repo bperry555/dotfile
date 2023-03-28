@@ -18,6 +18,9 @@ return {
         -- Snippets
         { 'L3MON4D3/LuaSnip' },       -- Required
         { 'rafamadriz/friendly-snippets' }, -- Optional
+
+        -- Testing neodev.nvim
+        { 'folke/neodev' },
     },
     config = function()
         local lsp = require('lsp-zero').preset({
@@ -26,6 +29,8 @@ return {
             manage_nvim_cmp = true,
             suggest_lsp_servers = true,
         })
+
+        lsp.skip_server_setup({'rust_analyzer'})
 
         lsp.configure('lua_ls',{
             on_attach = function(client, bufnr)
@@ -50,5 +55,15 @@ return {
 
         lsp.nvim_workspace()
         lsp.setup()
+
+        vim.diagnostic.config({
+            virtual_text = true,
+            signs = true,
+            update_in_insert = false,
+            underline = true,
+            severity_sort = false,
+            float = true,
+        })
+
     end
 }
