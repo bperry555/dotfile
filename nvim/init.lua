@@ -55,5 +55,3 @@ vim.opt.ignorecase = true -- case insensitive search...
 vim.opt.smartcase = true -- unless I use caps
 vim.opt.hlsearch = true -- highlight matching text
 vim.opt.incsearch = true -- update results while I type
-
-vim.diagnostic.config({virtual_text = true })

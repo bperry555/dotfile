@@ -13,6 +13,6 @@ return {
             },
             sidebars = { "qf", "help", "aerial", "terminal" },
         })
-        vim.cmd([[colorscheme tokyonight]])
+        -- vim.cmd([[colorscheme tokyonight]])
     end,
 }
