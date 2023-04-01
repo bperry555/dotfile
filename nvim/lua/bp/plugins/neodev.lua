@@ -1,9 +1,12 @@
 return {
     "folke/neodev.nvim",
-    opts = {
-        library = {
-            plugins = { "nvim-dap-uia" },
-            types = true
-        }
-    }
+    config = function ()
+        require('neodev').setup({
+            library = {
+                plugins = {
+                    'vnim-dap-ui'
+                },
+                types = true },
+            })
+        end
 }

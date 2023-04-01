@@ -23,6 +23,7 @@ return {
         { 'folke/neodev.nvim' },
     },
     config = function()
+        require('neodev').setup({})
         local lsp = require('lsp-zero').preset({
             name = 'recommended',
             set_lsp_keymaps = true,
@@ -34,17 +35,18 @@ return {
 
         lsp.configure('lua_ls',{
             on_attach = function(client, bufnr)
-                print('Hi Lua Server')
             end,
             settings = {
                 Lua ={
+                    completion ={
+                        callSnippet = "Replace"
+                    },
                     diagnostics = {
                         globals = { 'vim' }
                     }
                 }
             }
         })
-
 
         lsp.set_sign_icons({
             error = '✘',
